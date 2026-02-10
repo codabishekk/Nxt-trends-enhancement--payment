@@ -30,7 +30,7 @@ class PrimeDealsSection extends Component {
 
     const jwtToken = Cookies.get('jwt_token')
 
-    const apiUrl = 'https://apis.ccbp.in/prime-deals'
+    const apiUrl = '/api/products'
     const options = {
       headers: {
         Authorization: `Bearer ${jwtToken}`,
