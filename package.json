@@ -20,8 +20,11 @@
     "react-icons": "4.2.0",
     "react-loader-spinner": "4.0.0",
     "react-router-dom": "5.2.0",
-    "reactjs-popup": "2.0.6"
+    "reactjs-popup": "2.0.6",
+    "concurrently": "^8.2.2",
+    "nodemon": "^3.1.0"
   },
+  "proxy": "http://localhost:5000",
   "devDependencies": {
     "eslint-config-airbnb": "18.2.1",
     "eslint-config-prettier": "8.1.0",
@@ -34,6 +37,8 @@
   },
   "scripts": {
     "start": "set NODE_OPTIONS=--openssl-legacy-provider && react-scripts start",
+    "server": "nodemon backend/src/server.js",
+    "dev": "concurrently \"npm start\" \"npm run server\"",
     "build": "set NODE_OPTIONS=--openssl-legacy-provider && react-scripts build",
     "test": "react-scripts test",
     "lint": "eslint .",
