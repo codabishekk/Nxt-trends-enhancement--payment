@@ -1,31 +1,21 @@
-import bcrypt from 'bcryptjs'
-import User from '../models/User.model.js'
-import {generateToken} from '../utils/jwt.util.js'
+import * as authService from '../services/auth.service.js'
+import {sendResponse} from '../utils/response.util.js'
 
 export const register = async (req, res) => {
-  const {name, email, password} = req.body
-
-  const exists = await User.findOne({email})
-  if (exists) return res.status(400).json({message: 'User exists'})
-
-  const hashed = await bcrypt.hash(password, 10)
-  const user = await User.create({name, email, password: hashed})
-
-  res.json({
-    token: generateToken(user._id),
-    user,
-  })
+  try {
+    const {user, token} = await authService.registerUser(req.body)
+    sendResponse(res, 201, 'User registered successfully', {user, token})
+  } catch (error) {
+    sendResponse(res, 400, error.message)
+  }
 }
 
 export const login = async (req, res) => {
-  const {email, password} = req.body
-  const user = await User.findOne({email})
-
-  if (!user || !(await bcrypt.compare(password, user.password)))
-    return res.status(401).json({message: 'Invalid credentials'})
-
-  res.json({
-    token: generateToken(user._id),
-    user,
-  })
+  try {
+    const {email, password} = req.body
+    const {user, token} = await authService.loginUser(email, password)
+    sendResponse(res, 200, 'Login successful', {user, token})
+  } catch (error) {
+    sendResponse(res, 401, error.message)
+  }
 }

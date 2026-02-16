@@ -1,4 +1,4 @@
-.login-form-container {
+.register-form-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -10,30 +10,30 @@
 }
 
 @media screen and (min-width: 992px) {
-  .login-form-container {
+  .register-form-container {
     flex-direction: row;
     justify-content: space-around;
   }
 }
 
-.login-website-logo-mobile-img {
+.register-website-logo-mobile-img {
   width: 165px;
   margin-top: 50px;
   margin-bottom: 35px;
 }
 
 @media screen and (min-width: 992px) {
-  .login-website-logo-mobile-img {
+  .register-website-logo-mobile-img {
     display: none;
   }
 }
 
-.login-img {
+.register-img {
   width: 278px;
 }
 
 @media screen and (min-width: 992px) {
-  .login-img {
+  .register-img {
     width: 60%;
     max-width: 524px;
     flex-shrink: 1;
@@ -41,12 +41,12 @@
   }
 }
 
-.login-website-logo-desktop-img {
+.register-website-logo-desktop-img {
   width: 185px;
 }
 
 @media screen and (max-width: 991px) {
-  .login-website-logo-desktop-img {
+  .register-website-logo-desktop-img {
     display: none;
   }
 }
@@ -86,7 +86,7 @@
   color: #475569;
 }
 
-.username-input-field {
+.input-field {
   font-size: 14px;
   height: 40px;
   border: 1px solid #d7dfe9;
@@ -98,19 +98,7 @@
   outline: none;
 }
 
-.password-input-field {
-  font-size: 14px;
-  height: 40px;
-  border: 1px solid #d7dfe9;
-  background-color: #e2e8f0;
-  color: #64748b;
-  border-radius: 2px;
-  margin-top: 5px;
-  padding: 8px 16px 8px 16px;
-  outline: none;
-}
-
-.login-button {
+.register-button {
   font-family: 'Roboto';
   font-weight: bold;
   font-size: 14px;
@@ -126,6 +114,11 @@
   outline: none;
 }
 
+.register-button:disabled {
+  background-color: #7ba6ff;
+  cursor: not-allowed;
+}
+
 .error-message {
   align-self: start;
   font-size: 12px;
@@ -137,14 +130,14 @@
   color: #ff0b37;
 }
 
-.register-link {
+.login-link {
   margin-top: 15px;
   font-family: 'Roboto';
   font-size: 14px;
   color: #475569;
 }
 
-.register-link a {
+.login-link a {
   color: #0b69ff;
   text-decoration: none;
   font-weight: bold;
