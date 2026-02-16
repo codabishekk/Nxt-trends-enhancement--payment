@@ -6,6 +6,7 @@ export const register = async (req, res) => {
     const {user, token} = await authService.registerUser(req.body)
     sendResponse(res, 201, 'User registered successfully', {user, token})
   } catch (error) {
+    console.error('Registration Error:', error)
     sendResponse(res, 400, error.message)
   }
 }
@@ -16,6 +17,7 @@ export const login = async (req, res) => {
     const {user, token} = await authService.loginUser(email, password)
     sendResponse(res, 200, 'Login successful', {user, token})
   } catch (error) {
+    console.error('Login Error:', error)
     sendResponse(res, 401, error.message)
   }
 }

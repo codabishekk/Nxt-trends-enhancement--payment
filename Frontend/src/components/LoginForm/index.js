@@ -80,7 +80,7 @@ const LoginForm = () => {
         </button>
         {error && <p className="error-message">*{error}</p>}
         <p className="register-link">
-          Don't have an account? <Link to="/register">Register</Link>
+          Don&apos;t have an account? <Link to="/register">Register</Link>
         </p>
       </form>
     </div>
